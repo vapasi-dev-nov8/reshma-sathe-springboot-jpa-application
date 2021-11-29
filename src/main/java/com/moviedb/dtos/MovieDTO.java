@@ -2,6 +2,8 @@ package com.moviedb.dtos;
 
 import com.moviedb.entities.MovieEntity;
 
+import java.util.Objects;
+
 public class MovieDTO {
 
     private Integer movieId;
@@ -40,6 +42,22 @@ public class MovieDTO {
         return movieId;
     }
 
+    public void setMovieId(Integer movieId) {
+        this.movieId = movieId;
+    }
+
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
+    }
+
+    public void setActorName(String actorName) {
+        this.actorName = actorName;
+    }
+
+    public void setDirectorName(String directorName) {
+        this.directorName = directorName;
+    }
+
     public String getMovieName() {
         return movieName;
     }
@@ -50,6 +68,29 @@ public class MovieDTO {
 
     public String getDirectorName() {
         return directorName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MovieDTO movieDTO = (MovieDTO) o;
+        return Objects.equals(movieId, movieDTO.movieId) && Objects.equals(movieName, movieDTO.movieName) && Objects.equals(actorName, movieDTO.actorName) && Objects.equals(directorName, movieDTO.directorName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(movieId, movieName, actorName, directorName);
+    }
+
+    @Override
+    public String toString() {
+        return "MovieDTO{" +
+                "movieId=" + movieId +
+                ", movieName='" + movieName + '\'' +
+                ", actorName='" + actorName + '\'' +
+                ", directorName='" + directorName + '\'' +
+                '}';
     }
 }
 

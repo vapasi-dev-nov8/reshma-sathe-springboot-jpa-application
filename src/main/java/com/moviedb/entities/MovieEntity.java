@@ -33,8 +33,8 @@ public class MovieEntity {
         return new MovieEntity(null,movieDto.getMovieName(), movieDto.getActorName(), movieDto.getDirectorName());
     }
 
-    public MovieDTO movieDto() {
-        return new MovieDTO(this.movieId, this.movieName, this.actorName, this.directorName);
+    public static MovieEntity updateEntityFrom(MovieDTO movieDto) {
+        return new MovieEntity(movieDto.getMovieId(), movieDto.getMovieName(), movieDto.getActorName(), movieDto.getDirectorName());
     }
 
     public Integer getMovieId() {
